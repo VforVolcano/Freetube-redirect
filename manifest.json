@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "FreeTube Redirect",
   "version": "1.0.0",
-  "description": "Aggiunge un pulsante sotto i video di YouTube per aprirli direttamente in FreeTube",
+  "description": "Adds a button under YouTube videos to open them directly in FreeTube.",
   "permissions": ["activeTab"],
   "content_scripts": [
     {
