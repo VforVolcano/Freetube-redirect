@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreeTube Redirect</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 280px;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .header-icon {
+      width: 32px;
+      height: 32px;
+      background: #3ea6ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 2px;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 14px 0;
+    }
+
+    .info-block {
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .info-block p {
+      font-size: 12px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2ecc71;
+      flex-shrink: 0;
+    }
+
+    .open-yt-btn {
+      display: block;
+      width: 100%;
+      padding: 9px;
+      background: #3ea6ff;
+      color: #000;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.15s;
+      margin-top: 4px;
+    }
+
+    .open-yt-btn:hover { background: #65baff; }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 10px;
+      color: #555;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-icon">
+      <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
+        <path d="M7 1H17C18.6569 1 20 2.34315 20 4V20C20 21.6569 18.6569 23 17 23H7C5.34315 23 4 21.6569 4 20V4C4 2.34315 5.34315 1 7 1Z" stroke="white" stroke-width="1.5"/>
+        <path d="M9.5 8L16 12L9.5 16V8Z" fill="white"/>
+      </svg>
+    </div>
+    <div>
+      <h1>FreeTube Redirect</h1>
+      <div class="subtitle">Apri YouTube in FreeTube</div>
+    </div>
+  </div>
+
+  <div class="status-row">
+    <div class="dot"></div>
+    <span>Estensione attiva su YouTube</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="info-block">
+    <p>
+      Ogni volta che visiti una pagina video su YouTube, apparirà un pulsante
+      <strong style="color:#3ea6ff">Apri in FreeTube</strong> sotto il player.
+      Clicca su di esso per aprire il video nell'app FreeTube.
+    </p>
+  </div>
+
+  <button class="open-yt-btn" id="goYt">Vai su YouTube</button>
+
+  <div class="footer">FreeTube deve essere installato sul tuo sistema</div>
+
+  <script>
+    document.getElementById('goYt').addEventListener('click', () => {
+      chrome.tabs.create({ url: 'https://www.youtube.com' });
+    });
+  </script>
+</body>
+</html>
