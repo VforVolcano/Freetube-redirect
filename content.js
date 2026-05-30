@@ -46,8 +46,8 @@
 
     const btn = document.createElement('button');
     btn.id = 'freetube-redirect-btn';
-    btn.setAttribute('aria-label', 'Apri in FreeTube');
-    btn.title = 'Apri in FreeTube';
+    btn.setAttribute('aria-label', 'Open in FreeTube');
+    btn.title = 'Open in FreeTube';
 
     // SVG icon (FreeTube-style play icon)
     btn.innerHTML = `
@@ -58,13 +58,13 @@
           <path d="M9.5 8L16 12L9.5 16V8Z" fill="currentColor"/>
         </svg>
       </span>
-      <span class="ft-label">Apri in FreeTube</span>
+      <span class="ft-label">Open in FreeTube</span>
     `;
 
     btn.addEventListener('click', () => {
       const freshVideoId = getVideoId();
       if (!freshVideoId) {
-        showToast('Nessun video rilevato in questa pagina.');
+        showToast('No videos detected on this page.');
         return;
       }
       const ftUrl = buildFreeTubeUrl(freshVideoId);
@@ -72,7 +72,7 @@
 
       // Fallback message after short delay
       setTimeout(() => {
-        showToast('Se FreeTube non si è aperto, assicurati che sia installato sul tuo sistema.');
+        showToast('If FreeTube didn t open, make sure it is installed on your system.');
       }, 1500);
     });
 
